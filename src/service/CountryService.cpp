@@ -35,7 +35,7 @@ CountryService::mapToCountry(string code,
   return dto;
 }
 string CountryService::readJsonFile() const {
-  ifstream countryJson(countryJsonPath);
+  ifstream countryJson(COUNTRY_JSON_PATH);
   string strjson((istreambuf_iterator<char>(countryJson)),
                  istreambuf_iterator<char>());
   countryJson.close();

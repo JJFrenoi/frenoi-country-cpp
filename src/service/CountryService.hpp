@@ -7,6 +7,7 @@
 #include <oatpp/parser/json/mapping/ObjectMapper.hpp>
 #include <oatpp/web/protocol/http/Http.hpp>
 #include <string>
+#define COUNTRY_JSON_PATH "resources/by-code.json"
 using namespace oatpp;
 using namespace std;
 using data::mapping::type::DTOWrapper;
@@ -22,7 +23,6 @@ private:
   DTOWrapper<Country> mapToCountry(string code,
                                    DTOWrapper<CountryContent> content) const;
   string readJsonFile() const;
-  inline static const std::string countryJsonPath = "resources/by-code.json";
 
 public:
   CountryService();
