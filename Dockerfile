@@ -1,4 +1,9 @@
-FROM lganzzzo/alpine-cmake:latest
+FROM debian:latest
+
+RUN set -ex;                                                                      \
+    apt-get update;                                                               \
+    apt-get install -y g++ curl libcurl4 libcurl4-openssl-dev cmake;              \
+    apt-get upgrade -y
 
 ADD . /service
 
