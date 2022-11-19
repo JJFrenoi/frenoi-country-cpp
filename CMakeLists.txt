@@ -15,6 +15,9 @@ add_library(${project_name}-lib
         src/controller/country/CountryController.hpp
         src/controller/MyController.hpp
         src/dto/DTOs.hpp
+        src/dto/StatusDto.hpp
+        src/ErrorHandler.cpp
+        src/ErrorHandler.hpp
 )
 
 ## link libs

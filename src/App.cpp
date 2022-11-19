@@ -29,7 +29,7 @@ void run() {
   oatpp::network::Server server(connectionProvider, connectionHandler);
 
   /* Print info about server port */
-  OATPP_LOGI("MyApp", "Server running on port %s", connectionProvider->getProperty("port").getData());
+  OATPP_LOGI("App.cpp", "Server running on port %s", connectionProvider->getProperty("port").getData());
 
   /* Run server */
   server.run();
@@ -42,7 +42,6 @@ void run() {
 int main(int argc, const char * argv[]) {
 
   oatpp::base::Environment::init();
-
   run();
   
   /* Print how much objects were created during app running, and what have left-probably leaked */
