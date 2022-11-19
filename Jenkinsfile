@@ -10,16 +10,6 @@ pipeline {
         APP_NAME = 'frenoi-country-cpp'
     }
     stages {
-        stage('BUILD') {
-            agent {
-                docker { image 'lganzzzo/alpine-cmake:latest' }
-            }
-            steps {
-                sh "mkdir build"
-                sh "cd build"
-                sh "cmake .."
-            }
-        }
         stage('BUILD DOCKER') {
             agent any
             options {
