@@ -34,6 +34,7 @@ pipeline {
                 sh "docker rmi -f frenoi/${APP_NAME}:${APP_VERSION} || true"
                 sh "docker rmi -f localhost:5000/frenoi/${APP_NAME}:${APP_VERSION} || true"
                 sh "docker rm -f ${APP_NAME} || true"
+                sh "docker network create -d bridge ${APP_NAME}"
                 sh "docker build -t frenoi/${APP_NAME}:${APP_VERSION} ."
                 sh "docker run -p ${APP_PORT}:8000 -d --net=${APP_NAME} --name ${APP_NAME} frenoi/${APP_NAME}:${APP_VERSION}"
                 sh "docker update --restart always ${APP_NAME}"
