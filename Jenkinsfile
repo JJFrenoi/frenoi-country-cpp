@@ -20,7 +20,9 @@ pipeline {
             }
         }
         stage('DEPLOY') {
-            agent any
+            agent {
+                label 'pie-node'
+            }
             when {
                 expression {
                     params.DEPLOY_BOOL
