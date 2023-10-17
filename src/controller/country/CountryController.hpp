@@ -36,7 +36,7 @@ public:
     info->addResponse<Object<Country>>(Status::CODE_404, "application/json");
     info->pathParams["code"].description = "Country code (ex: FR)";
   }
-  ENDPOINT("GET", "/api/country/{code}", getByCode, PATH(String, code)) {
+  ENDPOINT("GET", "/country-services/api/country/{code}", getByCode, PATH(String, code)) {
     auto byId = countryService.getByCode(code);
     return createDtoResponse(Status::CODE_200, byId);
   }
