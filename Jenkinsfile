@@ -16,7 +16,7 @@ pipeline {
                 timeout(time: 1, unit: 'HOURS')
             }
             steps {
-                sh "docker build -t ${APP_NAME}:${APP_VERSION} ."
+                sh "docker build -t ${APP_NAME}:${APP_VERSION} --no-cache ."
             }
         }
         stage('DEPLOY') {
@@ -37,7 +37,7 @@ pipeline {
                 sh "docker rmi -f localhost:5000/frenoi/${APP_NAME}:${APP_VERSION} || true"
                 sh "docker rm -f ${APP_NAME} || true"
                 sh "docker network create -d bridge ${APP_NAME}"
-                sh "docker build -t frenoi/${APP_NAME}:${APP_VERSION} ."
+                sh "docker build -t frenoi/${APP_NAME}:${APP_VERSION} --no-cache ."
                 sh "docker run -p ${APP_PORT}:8000 -d --net=${APP_NAME} --name ${APP_NAME} frenoi/${APP_NAME}:${APP_VERSION}"
                 sh "docker update --restart always ${APP_NAME}"
                 sh "docker tag frenoi/${APP_NAME}:${APP_VERSION} localhost:5000/frenoi/${APP_NAME}:${APP_VERSION} || true"
