@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.11.1)
 
 set(project_name frenoi-country-cpp) ## rename your project here
 
